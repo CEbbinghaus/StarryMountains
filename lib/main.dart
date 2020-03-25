@@ -1,3 +1,5 @@
+import 'Scene.dart';
+
 void main(){
-  print("Hello World!");
+  Scene();
 }

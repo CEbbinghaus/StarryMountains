@@ -1,5 +1,7 @@
 import 'dart:math';
 
+Random _rand = Random();
+
 class Vector2 {
 	double x;
 	double y;
@@ -19,6 +21,24 @@ class Vector2 {
 	static Vector2 get up{
 		return Vector2(0, 1);
 	}
+
+  static Vector2 get randomPosition{
+    return Vector2(_rand.nextDouble(), _rand.nextDouble());
+  }
+ 
+  static Vector2 get randomDirection{
+    double radians = _rand.nextDouble() * (pi * 2);
+    return Vector2(sin(radians), cos(radians));
+  }
+
+  static Vector2 InRect(num width, num height){
+    return Vector2(_rand.nextDouble() * width, _rand.nextDouble() * height);
+  }
+ 
+  static Vector2 InDir(num radius){
+    double radians = _rand.nextDouble() * (pi * 2);
+    return Vector2(sin(radians), cos(radians)) * radius;
+  }
 
 	double get Magnitude {
 		return sqrt(x * x + y * y);
